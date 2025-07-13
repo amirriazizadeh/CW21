@@ -15,6 +15,8 @@ class RecipeForm(ModelForm):
         model = Recipe
         fields = "__all__"
 
+    
+
 
 class IngredientsForm(ModelForm):
 

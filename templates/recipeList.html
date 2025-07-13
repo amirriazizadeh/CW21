@@ -1,0 +1,20 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        {% for i in recipe %}
+        <li><a href="{% url 'recipe_integrate' i.pk %}">{{ i }}</a></li>
+        <button><a href="{% url 'recipe_update' i.pk %}">UPDATE</a></button>
+        <button><a href="{% url 'confirm' i.pk %}">DELETE</a></button>
+        {% endfor %}
+    </ul>
+</body>
+</html>

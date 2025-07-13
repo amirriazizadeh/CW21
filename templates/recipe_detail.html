@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- templates/recipes/recipe_detail.html -->
+<h1>{{ rsp.title }}</h1>
+
+<p><strong>Description:</strong> {{ rsp.description }}</p>
+<p><strong>Difficulty:</strong> {{ rsp.difficulty }}</p>
+<p><strong>Preparation Time:</strong> {{ rsp.preparation_time }} min</p>
+<p><strong>Cooking Time:</strong> {{ rsp.cooking_time }} min</p>
+
+<h3>Ingredients:</h3>
+<ul>
+  {% for ingredient in rsp.ingredients.all %}
+    <li>{{ ingredient.name }} - {{ ingredient.quantity }}</li>
+  {% empty %}
+    <li>No ingredients</li>
+  {% endfor %}
+</ul>
+
+<h3>Categories:</h3>
+<ul>
+  {% for category in rsp.categories.all %}
+    <li>{{ category.name }}</li>
+  {% empty %}
+    <li>No categories</li>
+  {% endfor %}
+</ul>
+
+<h3>Instructions:</h3>
+<p>{{ rsp.instructions }}</p>
+
+<a href="{% url 'recipe_list' %}">Back to list</a>
+
+</body>
+</html>
